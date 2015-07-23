@@ -1,0 +1,22 @@
+@CHARSET "EUC-KR";
+
+hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
+}
+
+/*table {
+    display: table;
+    border-collapse: collpase;
+    border-spacing: 0px;
+    border-color: #EFEFEF;
+}*/
+
+table{table-layout:fixed;border-top:0px solid #c0c0c0;border-bottom:1px solid #c0c0c0;}
+
+td{padding:23px 0 18px 22px;border-top:2px solid #e7e7e7;color:#8f8f8f;line-height:140%;font-size:11px;}
