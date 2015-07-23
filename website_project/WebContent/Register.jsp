@@ -12,8 +12,8 @@
 <div align="center"><img src="<%=request.getContextPath() %>/images/visit.jpg"/></div>
 <div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
+
 <img src="<%=request.getContextPath() %>/images/basicInfo.JPG"/></div>
 <hr>
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
@@ -56,8 +56,7 @@
 <br><br>
 <div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;
 <img src="<%=request.getContextPath() %>/images/additional.JPG"/></div>
 <hr>
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">

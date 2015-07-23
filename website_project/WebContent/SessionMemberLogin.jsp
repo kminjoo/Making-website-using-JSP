@@ -14,7 +14,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Welcome to Minjoo's Website!</title>
-<link href="style.css" rel="stylesheet" type="text/css">
 <script language="JavaScript" src="script.js"> </script>
 </head>
 <body>
