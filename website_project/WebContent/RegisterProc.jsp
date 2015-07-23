@@ -20,7 +20,7 @@
 </div>
 <hr>
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
-<form name="regForm" method="post" action="memberInsert.jsp">
+<form name="regForm" method="post" action="MemberInsert.jsp">
 	<tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">ID</td>
 		<td width="60%"><input type="text" name="mem_id" size="18" value =
@@ -42,11 +42,6 @@
 		value ="<jsp:getProperty name="regBean" property="mem_lastname"/>"></td>
 	</tr>
 	<tr>
-		<td width="13%" align="center" bgcolor="#EFEFEF">Email</td>
-		<td width="60%"><input type="text" name="mem_email" size="27"
-		value ="<jsp:getProperty name="regBean" property="mem_email"/>">
-	</tr>
-	<tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">Phone Number</td>
 		<td width="30%"><input type="text" name="mem_phone1" size="3" maxlength="3" 
 			onKeyUp="if(this.value.length==3)regForm.mem_phone2.focus()"
@@ -57,7 +52,11 @@
 		&nbsp;-&nbsp;<input type="text" name="mem_phone3" size="4" maxlength="4"
 		value ="<jsp:getProperty name="regBean" property="mem_phone3"/>"></td>
 	</tr>
-	
+	<tr>
+    <td width="13%" align="center" bgcolor="#EFEFEF">Email</td>
+    <td width="60%"><input type="text" name="mem_email" size="27"
+    value ="<jsp:getProperty name="regBean" property="mem_email"/>">
+  </tr>
 </table>
 <br><br>
 <div>
@@ -74,22 +73,23 @@ if(bday == null)
   bday = "";
 %>
 		<td width="13%" align="center" bgcolor="#EFEFEF">BIRTHDAY</td>
-		<td width="60%"><input type="text" name="mem_bday" size="8" maxlength="8"
+		<td width="60%"><input type="text" name="mem_birthday" size="8" maxlength="8"
 		value =<%=bday %>>
 		(YYYYMMDD)</td>
 </tr>
 </table>
-</form>
+
 <br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <div align="center">
-	<a href="#" onclick="inputCheck(); return false;">
+	<a href="#" onclick="inputCheck2(); return false;">
 	<img src="<%=request.getContextPath() %>/images/submit.JPG"/></a>
 	<a href="#" onclick="history.back();">
 	<img src="<%=request.getContextPath() %>/images/goback.JPG"/></a>
 	
 </div>
+</form>
 
 </body>
 </html>

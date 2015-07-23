@@ -25,7 +25,7 @@
 	</tr>
 	<tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">Password</td>
-		<td width="60%"><input type="password" name="mem_passwd" size="18">
+		<td width="60%"><input type="password" name="mem_password" size="18">
 	</tr>
 	<tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">Confirm Password</td>
@@ -40,10 +40,6 @@
 		<td width="60%"><input type="text" name="mem_lastname" size="18"></td>
 	</tr>
 	<tr>
-		<td width="13%" align="center" bgcolor="#EFEFEF">Email</td>
-		<td width="60%"><input type="text" name="mem_email" size="27">
-	</tr>
-	<tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">Phone Number</td>
 		<td width="30%"><input type="text" name="mem_phone1" size="3" maxlength="3" 
 			onKeyUp="if(this.value.length==3)regForm.mem_phone2.focus()">&nbsp;-&nbsp;
@@ -51,6 +47,10 @@
 		onKeyUp="if(this.value.length==3)regForm.mem_phone3.focus()">
 		&nbsp;-&nbsp;<input type="text" name="mem_phone3" size="4" maxlength="4"></td>
 	</tr>
+	<tr>
+    <td width="13%" align="center" bgcolor="#EFEFEF">Email</td>
+    <td width="60%"><input type="text" name="mem_email" size="27">
+  </tr>
 	
 </table>
 <br><br>
@@ -62,11 +62,11 @@
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
 <tr>
 		<td width="13%" align="center" bgcolor="#EFEFEF">BIRTHDAY</td>
-		<td width="60%"><input type="text" name="mem_bday" size="8" maxlength="8">
+		<td width="60%"><input type="text" name="mem_birthday" size="8" maxlength="8">
 		(YYYYMMDD)</td>
 </tr>
 </table>
-</form>
+
 <br>
 <br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -79,6 +79,6 @@
 	<img src="<%=request.getContextPath() %>/images/reset.JPG"/></a>
 	
 </div>
-
+</form>
 </body>
 </html>

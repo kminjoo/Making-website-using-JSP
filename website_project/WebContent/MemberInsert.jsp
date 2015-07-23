@@ -23,6 +23,7 @@ if(insert){
 <%
 } 
 else{%>
+
 <div align="center"><img src="<%=request.getContextPath() %>/images/wrong.gif"/></div>
 <hr> 
 <jsp:include page="Register.jsp"/>

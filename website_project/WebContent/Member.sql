@@ -1,5 +1,5 @@
-CREATE TABLE member (
-	id VARCHAR(20) NOT NULL,
+CREATE TABLE member(
+	id VARCHAR(20) PRIMARY KEY NOT NULL,
 	passwd VARCHAR(20) NULL,
 	firstname VARCHAR(20) NULL,
 	lastname VARCHAR(20) NULL,
@@ -7,17 +7,17 @@ CREATE TABLE member (
 	phone2 VARCHAR(4) NULL,
 	phone3 VARCHAR(4) NULL,
 	email VARCHAR(30) NULL,
-	bday VARCHAR(8) NULL
-	PRIMARY KEY (id)
+	bday VARCHAR(2) NULL
 )
 
-CREATE TABLE zipcode(
-	zipcode char(7) NOT NULL,
-	area1 char(10) NULL,
-	area2 char(20) NULL,
-	area3 char(40) NULL,
-	area4 char(20) NULL
-)
+select * from member;
+insert into member values ('wydeld','yound123','Minjoo','Kwon','248','505','2651','zeptra17@gmail.com','19960223')
+delete from member where firstname is "Kwon";
+
+create sequence board2_idx_seq increment by 1 start with 1;
+DROP TABLE member;
+DROP TABLE zipcode;
+
 
 
 

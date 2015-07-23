@@ -23,24 +23,27 @@
 <div align = "center">
 	<img src = "<%= request.getContextPath() %>/images/login.JPG"/>
 </div>
-<form name="loginform" method="post" action="SessionMemberLoginOK.jsp">
+<form name="login" method="post" action="SessionMemberLoginOK.jsp">
 <table align="center">
 
 <tr>
 	<td><div align="center"><img src = "<%= request.getContextPath() %>/images/id.JPG"/></div></td>
-	<td><div align="center"><input type="text" name="memberid"></div></td>
+	<td><div align="center"><input type="text" name="mem_id"></div></td>
 </tr>
 <tr>
 	<td><div align="center"><img src = "<%= request.getContextPath() %>/images/pw.JPG"/></div></td>
-	<td><div align="center"><input type="password" name="memberpw"></div></td>
+	<td><div align="center"><input type="password" name="mem_passwd"></div></td>
 </tr>
-<tr>	
-	<td colspan="2"><div align="center">
-		<input type="image" src="<%= request.getContextPath() %>/images/click.JPG" onClick = "submit()">
-		</div></td>
+<tr>  
+  <td colspan="2"><div align="center">
+  <input type="image" src="<%= request.getContextPath() %>/images/click.gif" onClick = "loginCheck()">
+    
+    </div></td>
 </tr>
-
 </table>
 </form>
+
+<div align="center">
+<input type="image" src="<%= request.getContextPath() %>/images/signup.gif" onClick = "memberReg()"></div>
 </body>
 </html>

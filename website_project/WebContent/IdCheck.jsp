@@ -10,6 +10,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Welcome to Minjoo's Website!</title>
+<script language="JavaScript" src="script.js"> </script>
 </head>
 <body bgcolor="#FFFFCC">
 <br>

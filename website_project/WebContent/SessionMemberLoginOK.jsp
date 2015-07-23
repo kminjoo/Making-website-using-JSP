@@ -2,12 +2,8 @@
     pageEncoding="EUC-KR"%>
 <jsp:useBean id = "IsMember" class="signUp.MemberMgrPool" />
 <% 
-	String memberId ="";
-	String memberPw = "";
-	if(request.getParameter("memberId") != null)
-	  memberId = request.getParameter("memberId");
-	if(request.getParameter("memberPw") != null)
-	  memberPw = request.getParameter("memberPw");
+	  String memberId = request.getParameter("memberId");
+	  String memberPw = request.getParameter("memberPw");
 	if(IsMember.passCheck(memberId, memberPw))
 	  {
 	  	session.setAttribute("memID", memberId);
@@ -20,7 +16,7 @@
 	  }else{
 %>
 <script>
-	alert("Failed to log in");
+	alert("Failed to log in. \n\r Check your ID and Password.");
 	location.href="SessionMemberLogin.jsp";
 </script>
 <%} %>

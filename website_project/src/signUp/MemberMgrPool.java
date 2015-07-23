@@ -33,12 +33,10 @@ public class MemberMgrPool {
          regBean.setMem_password(rs.getString("passwd"));
          regBean.setMem_firstname(rs.getString("firstname"));
          regBean.setMem_lastname(rs.getString("lastname"));
-         regBean.setMem_address(rs.getString("address"));
          regBean.setMem_phone1(rs.getString("phone1"));
          regBean.setMem_phone2(rs.getString("phone2"));
          regBean.setMem_phone3(rs.getString("phone3"));
          regBean.setMem_email(rs.getString("email"));
-         regBean.setMem_job(rs.getString("job"));
          regBean.setMem_birthday(rs.getString("bday"));
          vecList.add(regBean);
        }
@@ -93,25 +91,29 @@ public class MemberMgrPool {
      return result;
    }
    
-   public boolean memberInsert(RegisterBean regBean){
+   public Boolean memberInsert(RegisterBean regBean) throws SQLException{
      Connection conn = null;
      PreparedStatement pstmt = null;
      Boolean insert = false;
+     int count = 0;
+     String member = " member ";
+     String name = regBean.getMem_id();
+     String password = regBean.getMem_password();
+     String firstname = regBean.getMem_firstname();
+     String lastname = regBean.getMem_lastname();
+     String phone1 = regBean.getMem_phone1();
+     String phone2 = regBean.getMem_phone2();
+     String phone3 = regBean.getMem_phone3();
+     String email = regBean.getMem_email();
+     String birthday = regBean.getMem_birthday();
+
      try{
        conn = pool.getConnection();
-       String strQuery = "insert into member values (?,?,?,?,?,?,?,?,?)";
+       String strQuery = " insert into "+member+" values ('"+name+"','"+password+"','"+firstname+"','"+lastname+"','"+phone1+"','"+phone2+"','"+phone3+"','"+email+"','"+birthday+"') ";
        pstmt  = conn.prepareStatement(strQuery);
-       pstmt.setString(1, regBean.getMem_id());
-       pstmt.setString(2, regBean.getMem_password());
-       pstmt.setString(3, regBean.getMem_firstname());
-       pstmt.setString(4, regBean.getMem_lastname());
-       pstmt.setString(5, regBean.getMem_phone1());
-       pstmt.setString(6, regBean.getMem_phone2());
-       pstmt.setString(7, regBean.getMem_phone3());
-       pstmt.setString(8, regBean.getMem_email());
-       pstmt.setString(9, regBean.getMem_birthday());
-       int count = pstmt.executeUpdate();
        
+       count = pstmt.executeUpdate();
+       System.out.println(count);
        if(count>0){
          insert = true;
        }

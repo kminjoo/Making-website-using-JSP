@@ -5,13 +5,11 @@ public class RegisterBean {
   private String mem_password;
   private String mem_firstname;
   private String mem_lastname;
-  private String mem_address;
   private String mem_phone1;
   private String mem_phone2;
   private String mem_phone3;
   private String mem_email;
   private String mem_birthday;
-  private String mem_job;
   public String getMem_id() {
     return mem_id;
   }
@@ -24,7 +22,6 @@ public class RegisterBean {
   public void setMem_password(String mem_password) {
     this.mem_password = mem_password;
   }
-
   public String getMem_firstname() {
     return mem_firstname;
   }
@@ -37,13 +34,6 @@ public class RegisterBean {
   public void setMem_lastname(String mem_lastname) {
     this.mem_lastname = mem_lastname;
   }
-  public String getMem_address() {
-    return mem_address;
-  }
-  public void setMem_address(String mem_address) {
-    this.mem_address = mem_address;
-  }
- 
   public String getMem_phone1() {
     return mem_phone1;
   }
@@ -74,10 +64,5 @@ public class RegisterBean {
   public void setMem_birthday(String mem_birthday) {
     this.mem_birthday = mem_birthday;
   }
-  public String getMem_job() {
-    return mem_job;
-  }
-  public void setMem_job(String mem_job) {
-    this.mem_job = mem_job;
-  }
+
 }
