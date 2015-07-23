@@ -3,7 +3,6 @@ CREATE TABLE member (
 	passwd VARCHAR(20) NULL,
 	firstname VARCHAR(20) NULL,
 	lastname VARCHAR(20) NULL,
-	address VARCHAR(60) NULL,
 	phone1 VARCHAR(3) NULL,
 	phone2 VARCHAR(4) NULL,
 	phone3 VARCHAR(4) NULL,

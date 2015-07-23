@@ -3,6 +3,7 @@ package signUp;
 import java.util.*;
 import java.sql.*;
 import connectionPool.*;
+import signUp.RegisterBean;
 
 public class MemberMgrPool {
    private DBConnectionMgr pool = null;
@@ -92,6 +93,35 @@ public class MemberMgrPool {
      return result;
    }
    
+   public boolean memberInsert(RegisterBean regBean){
+     Connection conn = null;
+     PreparedStatement pstmt = null;
+     Boolean insert = false;
+     try{
+       conn = pool.getConnection();
+       String strQuery = "insert into member values (?,?,?,?,?,?,?,?,?)";
+       pstmt  = conn.prepareStatement(strQuery);
+       pstmt.setString(1, regBean.getMem_id());
+       pstmt.setString(2, regBean.getMem_password());
+       pstmt.setString(3, regBean.getMem_firstname());
+       pstmt.setString(4, regBean.getMem_lastname());
+       pstmt.setString(5, regBean.getMem_phone1());
+       pstmt.setString(6, regBean.getMem_phone2());
+       pstmt.setString(7, regBean.getMem_phone3());
+       pstmt.setString(8, regBean.getMem_email());
+       pstmt.setString(9, regBean.getMem_birthday());
+       int count = pstmt.executeUpdate();
+       
+       if(count>0){
+         insert = true;
+       }
+     }catch(Exception e){
+       System.out.println("Exception: " + e);
+     }finally{
+       pool.freeConnection(conn, pstmt);
+     }
+     return insert;
+   }
    
    
 }//class ends
