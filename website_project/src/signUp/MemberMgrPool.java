@@ -30,9 +30,12 @@ public class MemberMgrPool {
          RegisterBean regBean = new RegisterBean();
          regBean.setMem_id(rs.getString("id"));
          regBean.setMem_password(rs.getString("passwd"));
-         regBean.setMem_name(rs.getString("name"));
+         regBean.setMem_firstname(rs.getString("firstname"));
+         regBean.setMem_lastname(rs.getString("lastname"));
          regBean.setMem_address(rs.getString("address"));
-         regBean.setMem_phonenum(rs.getString("phone"));
+         regBean.setMem_phone1(rs.getString("phone1"));
+         regBean.setMem_phone2(rs.getString("phone2"));
+         regBean.setMem_phone3(rs.getString("phone3"));
          regBean.setMem_email(rs.getString("email"));
          regBean.setMem_job(rs.getString("job"));
          regBean.setMem_birthday(rs.getString("bday"));
@@ -64,10 +67,31 @@ public class MemberMgrPool {
      }catch (Exception e){
        System.out.println("EXCEPTION: " + e);
      }finally{
-       pool.freeConnection(conn);
+       pool.freeConnection(conn, pstmt, rs);
      }
      return result;
    }
+   
+   public boolean checkId(String mem_id){
+     Connection conn = null;
+     PreparedStatement pstmt = null;
+     ResultSet rs = null;
+     boolean result = false;
+     try{
+       conn = pool.getConnection();
+       String strQuery = "select id from member where id = ?";
+       pstmt = conn.prepareStatement(strQuery);
+       pstmt.setString(1, mem_id);
+       rs = pstmt.executeQuery();
+       result = rs.next();
+     }catch(Exception e){
+       System.out.println("Exception: " + e);
+     }finally{
+       pool.freeConnection(conn, pstmt, rs);
+     }
+     return result;
+   }
+   
    
    
 }//class ends

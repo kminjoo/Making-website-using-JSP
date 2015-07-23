@@ -88,3 +88,8 @@ function inputCheck(){
 	
 	document.regForm.submit();
 }
+
+function win_close()
+{
+	self.close();
+}

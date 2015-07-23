@@ -3,9 +3,12 @@ package signUp;
 public class RegisterBean {
   private String mem_id;
   private String mem_password;
-  private String mem_name;
+  private String mem_firstname;
+  private String mem_lastname;
   private String mem_address;
-  private String mem_phonenum;
+  private String mem_phone1;
+  private String mem_phone2;
+  private String mem_phone3;
   private String mem_email;
   private String mem_birthday;
   private String mem_job;
@@ -21,11 +24,18 @@ public class RegisterBean {
   public void setMem_password(String mem_password) {
     this.mem_password = mem_password;
   }
-  public String getMem_name() {
-    return mem_name;
+
+  public String getMem_firstname() {
+    return mem_firstname;
   }
-  public void setMem_name(String mem_name) {
-    this.mem_name = mem_name;
+  public void setMem_firstname(String mem_firstname) {
+    this.mem_firstname = mem_firstname;
+  }
+  public String getMem_lastname() {
+    return mem_lastname;
+  }
+  public void setMem_lastname(String mem_lastname) {
+    this.mem_lastname = mem_lastname;
   }
   public String getMem_address() {
     return mem_address;
@@ -33,11 +43,24 @@ public class RegisterBean {
   public void setMem_address(String mem_address) {
     this.mem_address = mem_address;
   }
-  public String getMem_phonenum() {
-    return mem_phonenum;
+ 
+  public String getMem_phone1() {
+    return mem_phone1;
   }
-  public void setMem_phonenum(String mem_phonenum) {
-    this.mem_phonenum = mem_phonenum;
+  public void setMem_phone1(String mem_phone1) {
+    this.mem_phone1 = mem_phone1;
+  }
+  public String getMem_phone2() {
+    return mem_phone2;
+  }
+  public void setMem_phone2(String mem_phone2) {
+    this.mem_phone2 = mem_phone2;
+  }
+  public String getMem_phone3() {
+    return mem_phone3;
+  }
+  public void setMem_phone3(String mem_phone3) {
+    this.mem_phone3 = mem_phone3;
   }
   public String getMem_email() {
     return mem_email;
