@@ -24,7 +24,7 @@
 		<td height="190">
 			<table align="center">
 			<tr>
-				<td><div align="center"><img src="/images/minjoo.JPG"/></div></td>
+				<td><div align="center"><img src="<%=request.getContextPath() %>/images/minjoo.JPG"/></div></td>
 			</tr>
 			<tr>
 				<td><div align="center">
@@ -33,7 +33,7 @@
 			</tr>
 			<tr>
 				<td><div align="center">
-				<a href="SessionLogOut.jsp"><img src="/images/logout.JPG"/></a>
+				<a href="SessionLogOut.jsp"><img src="<%=request.getContextPath() %>/images/logout.JPG"/></a>
 				</div></td>
 			</tr>
 		</table>

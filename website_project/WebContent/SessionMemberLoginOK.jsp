@@ -2,8 +2,9 @@
     pageEncoding="EUC-KR"%>
 <jsp:useBean id = "IsMember" class="signUp.MemberMgrPool" />
 <% 
-	  String memberId = request.getParameter("memberId");
-	  String memberPw = request.getParameter("memberPw");
+	  String memberId = request.getParameter("mem_id");
+	  String memberPw = request.getParameter("mem_passwd");
+	  System.out.println("member Id: " + memberId + " member Pw: " + memberPw);
 	if(IsMember.passCheck(memberId, memberPw))
 	  {
 	  	session.setAttribute("memID", memberId);

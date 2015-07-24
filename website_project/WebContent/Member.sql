@@ -7,7 +7,7 @@ CREATE TABLE member(
 	phone2 VARCHAR(4) NULL,
 	phone3 VARCHAR(4) NULL,
 	email VARCHAR(30) NULL,
-	bday VARCHAR(2) NULL
+	bday VARCHAR(8) NULL
 )
 
 select * from member;

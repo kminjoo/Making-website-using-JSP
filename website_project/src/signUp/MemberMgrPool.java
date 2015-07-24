@@ -105,8 +105,8 @@ public class MemberMgrPool {
      String phone2 = regBean.getMem_phone2();
      String phone3 = regBean.getMem_phone3();
      String email = regBean.getMem_email();
-     String birthday = regBean.getMem_birthday();
-
+     String birthday = regBean.getMem_birthday(); 
+     //String strQuery = "insert into member values " + name + " " + password+" " +firstname+" " +lastname+" " +phone1+phone2+phone3+email+birthday;
      try{
        conn = pool.getConnection();
        String strQuery = " insert into "+member+" values ('"+name+"','"+password+"','"+firstname+"','"+lastname+"','"+phone1+"','"+phone2+"','"+phone3+"','"+email+"','"+birthday+"') ";
