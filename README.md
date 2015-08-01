@@ -60,14 +60,14 @@ LogError.jsp:
 
 
 ------------------------------Making forum (in other words, list of posts)-----------------------------------------------
-board.sql
+board.sql: 
 	* sql file for board
 	* name, email, homepage, title, content, password, date, hit
 
-ConnectionFactory.java
+ConnectionFactory.java:
 	* Connects to DB
 
-ConnectionPool.java
+ConnectionPool.java:
 	* constructor -- initializes member variables
 	* creates factory instance that connects DB
 	* add connection to vector
@@ -77,30 +77,27 @@ ConnectionPool.java
 	* getPooledConnection() -- see if there is a connection to reuse. if yes, return connection. if not, return null
 	* createConnection() -- connec to oracle using connection factory
 
-BoardBean.java
+BoardBean.java:
 	* DAO for board ( forum )
 
-BoardQuery.java
+BoardQuery.java:
 	* DTO for board
 	* connects to DB automatically using constructor
 	* boardInsert(BoardBean boardbean) -- inserts contents to DB
 	* boardCount() -- counts the total number of posts
 	* getBoardList(int offset, int limit) -- return vector that contains board
 	* boardHitUp() -- increase views
-	* boardView(int idx) -- returns the contents
-	* 
-		* used when you want to read the post using the index of post
-
+	* boardView(int idx) -- returns the contents --- used when you want to read the post using the index of post
 	* passwordCheck(int idx, String pwd) -- check for passwords
 	* boardUpdate(BoardBean boardBean) -- insert the edited post to bean
 	* boardDelete(int idx, String pwd) -- if password is correct, go ahead and delete the post
 	* boardCount(String find, String search) -- return number of result posts
 	* getSearchList(int offset, int limit, String find, String search) -- return vector containing searched posts
 
-write.jsp
+write.jsp:
 	* form for forum
 
-write_ok.jsp
+write_ok.jsp:
 	* insert all the contents to DAO using Bean
 	* redirect to list.jsp
 
@@ -109,43 +106,40 @@ list.jsp
 	* Pagination
 	* Search bar
 
-PagingCount.java
+PagingCount.java:
 	* counts number of posts
 	* Pagination design
 	* Pagination manager
-	* 
 		* go to first page
 		* go to last page
 		* show 10 pages before
 		* show 10 pages after
 
 	* showPaging(int pagelink, String pagename, String find, String search)
-	* 
 		* paging design
 
-	* 
 
 
-content.jsp
+content.jsp:
 	* show the contents of post
 	* increase views
 	* edit / delete button
 
-edit.jsp
+edit.jsp:
 	* edit page
 
-edit_ok.jsp
+edit_ok.jsp:
 	* check for correct passwordh
 	* in order to edit the post, user needs to enter the password
 
-del.jsp
+del.jsp:
 	* delete form
 	* input - password
 
-del_ok.jsp
+del_ok.jsp:
 	* check for correct password
 
-search.jsp
+search.jsp:
 	* pagination
 	* search by index, date, title, author, or views
 	* lists corresponding posts
