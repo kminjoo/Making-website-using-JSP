@@ -17,5 +17,28 @@ public class BoardQuery {
   }
 } //  BoardQuery()
    
+   public void boardInsert(BoardBean boardBean) throws SQLException {
+     Connection conn = pool.getConnection();
+     Statement stmt = conn.createStatement();
+     String sql = "";
+     
+     String name = boardBean.getName();
+     String email = boardBean.getEmail();
+     String title = boardBean.getTitle();
+     String content = boardBean.getContent();
+     String pwd = boardBean.getPwd();
+     try{
+       sql = " insert into "+board+" values("+idxNum+",'"+name+"','"+email+"','"+title+"','"+content+"',"
+           + "'"+pwd+"',sysdate,0)";
+       stmt.executeUpdate(sql);
+       
+     }catch(Exception e){
+       System.out.println(e);
+     }finally{
+       stmt.close();
+       pool.releaseConnection(conn);
+     }
+     
+   }
    
 }//class ends
