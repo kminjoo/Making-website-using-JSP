@@ -35,6 +35,7 @@
 				<td><div align="center">
 				<a href="SessionLogOut.jsp"><img src="<%=request.getContextPath() %>/images/logout.JPG"/></a>
 				</div></td>
+				<td><a href="write.jsp">write</a></td>
 			</tr>
 		</table>
 		</td>

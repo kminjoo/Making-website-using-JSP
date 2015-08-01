@@ -2,6 +2,7 @@ package signUp;
 
 import java.util.*;
 import java.sql.*;
+
 import connectionPool.*;
 import signUp.RegisterBean;
 
@@ -106,7 +107,7 @@ public class MemberMgrPool {
      String phone3 = regBean.getMem_phone3();
      String email = regBean.getMem_email();
      String birthday = regBean.getMem_birthday(); 
-     //String strQuery = "insert into member values " + name + " " + password+" " +firstname+" " +lastname+" " +phone1+phone2+phone3+email+birthday;
+ 
      try{
        conn = pool.getConnection();
        String strQuery = " insert into "+member+" values ('"+name+"','"+password+"','"+firstname+"','"+lastname+"','"+phone1+"','"+phone2+"','"+phone3+"','"+email+"','"+birthday+"') ";
@@ -125,5 +126,36 @@ public class MemberMgrPool {
      return insert;
    }
    
-   
+   public Vector findInfo(String cust_id){
+     Connection conn = null;
+     PreparedStatement pstmt = null;
+     ResultSet rs = null;
+     Vector info = new Vector();
+     try{
+       conn = pool.getConnection();
+       String strQuery = "select * from member where id = ?";
+       pstmt = conn.prepareStatement(strQuery);
+       pstmt.setString(1, cust_id);
+       rs = pstmt.executeQuery();
+       
+       while(rs.next()){
+       RegisterBean regBean = new RegisterBean();
+       regBean.setMem_id(rs.getString("id"));
+       regBean.setMem_password(rs.getString("passwd"));
+       regBean.setMem_firstname(rs.getString("firstname"));
+       regBean.setMem_lastname(rs.getString("lastname"));
+       regBean.setMem_phone1(rs.getString("phone1"));
+       regBean.setMem_phone2(rs.getString("phone2"));
+       regBean.setMem_phone3(rs.getString("phone3"));
+       regBean.setMem_email(rs.getString("email"));
+       regBean.setMem_birthday(rs.getString("bday"));
+       info.add(regBean);
+       }
+      }catch (Exception e){
+       System.out.println("EXCEPTION: " + e);
+     }finally{
+       pool.freeConnection(conn, pstmt, rs);
+     }
+     return info;
+   }
 }//class ends

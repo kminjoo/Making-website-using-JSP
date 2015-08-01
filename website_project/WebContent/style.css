@@ -17,7 +17,7 @@ div{
 
 img{vertical-align:middle;}
 
-table{table-layout:fixed;border-top:2px solid #c0c0c0;border-bottom:1px solid #c0c0c0;}
+table{table-layout:fixed;border-top:2px solid #c0c0c0;border-bottom:0px solid #c0c0c0; border-left:0px; border-right:0px;}
 
 td{border-top:2px solid #e7e7e7;color:black;line-height:140%;font-size:15px;font-family: arial;
 font-weight:bold;
