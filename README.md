@@ -63,13 +63,16 @@ LogError.jsp:
 
 2. making FORUM
 board.sql
+
 	* sql file for board
 	* name, email, homepage, title, content, password, date, hit
 	
 ConnectionFactory.java
+
 	* Connects to DB
 
 ConnectionPool.java
+
 	* constructor -- initializes member variables
 	* creates factory instance that connects DB
 	* add connection to vector
@@ -80,9 +83,11 @@ ConnectionPool.java
 	* createConnection() -- connec to oracle using connection factory
 
 BoardBean.java
+
 	* DAO for board ( forum )
 
 BoardQuery.java
+
 	* DTO for board
 	* connects to DB automatically using constructor
 	* boardInsert(BoardBean boardbean) -- inserts contents to DB
@@ -100,18 +105,22 @@ BoardQuery.java
 	* getSearchList(int offset, int limit, String find, String search) -- return vector containing searched posts
 
 write.jsp
+
 	* form for forum
 
 write_ok.jsp
+
 	* insert all the contents to DAO using Bean
 	* redirect to list.jsp
 
 list.jsp
+
 	* reads all the forums
 	* Pagination
 	* Search bar
 
 PagingCount.java
+
 	* counts number of posts
 	* Pagination design
 	* Pagination manager
@@ -129,25 +138,31 @@ PagingCount.java
 
 
 content.jsp
+
 	* show the contents of post
 	* increase views
 	* edit / delete button
 
 edit.jsp
+
 	* edit page
 
 edit_ok.jsp
+
 	* check for correct passwordh
 	* in order to edit the post, user needs to enter the password
 
 del.jsp
+
 	* delete form
 	* input - password
 
 del_ok.jsp
+
 	* check for correct password
 
 search.jsp
+
 	* pagination
 	* search by index, date, title, author, or views
 	* lists corresponding posts
