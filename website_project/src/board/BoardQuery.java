@@ -106,4 +106,52 @@ public class BoardQuery {
      return boardList;
    }
    
+   public void boardHitUp(int idx) throws SQLException{
+	   Connection conn = pool.getConnection();
+	   Statement stmt = conn.createStatement();
+	   
+	   try{
+		   String sql = " update "+board+" set hit = hit + '1' where idx = '"+idx+"'";
+		   stmt.execute(sql);
+	   }catch(Exception e){
+		   System.out.println(e);
+	   }finally{
+		  stmt.close();
+		  pool.releaseConnection(conn);
+	   }
+   }
+   
+   public BoardBean boardView(int idx) throws SQLException{
+	   BoardBean boardBean = null;
+	   Connection conn = null;
+	   Statement stmt = null;
+	   ResultSet rs = null;
+	   String sql = null;
+	   
+	   try{
+		   conn = pool.getConnection();
+		   stmt = conn.createStatement();
+		   sql = "select * from "+board+" where idx="+idx;
+		   rs = stmt.executeQuery(sql);
+		   boardBean = new BoardBean();
+		   if(rs.next()){
+			   boardBean.setIdx(rs.getInt("idx"));
+			   boardBean.setHit(rs.getInt("hit"));
+			   boardBean.setName(rs.getString("name"));
+			   boardBean.setEmail(rs.getString("email"));
+			   boardBean.setTitle(rs.getString("title"));
+			   String content = rs.getString("content");
+			   content = content.replaceAll("\n", "<br>");
+			   boardBean.setContent(content);
+			   boardBean.setWdate(rs.getString("wdate"));
+		   }
+	   }catch(Exception e){
+		   System.out.println(e);
+	   }finally{
+		   rs.close();
+		   stmt.close();
+		   pool.releaseConnection(conn);
+	   }
+	   return boardBean;
+   }
 }//class ends

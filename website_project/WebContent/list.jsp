@@ -59,7 +59,7 @@ for(int i = 0; i < listVector.size(); ++i){
 %>
 <tr>
   <td class="contents"><%=boardBean.getIdx() %></td>
-  <td class="title"><%=boardBean.getTitle() %></td>
+  <td class="title"><a style="text-decoration:none;" href="content.jsp?idx=<%=boardBean.getIdx()%>"><%=boardBean.getTitle() %></a></td>
   <td class="contents"><%=boardBean.getName() %></td>
   <td class="contents"><%=boardBean.getWdate() %></td>
   <td class="contents"><%=boardBean.getHit() %></td>
