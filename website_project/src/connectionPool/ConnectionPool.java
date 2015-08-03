@@ -19,6 +19,7 @@ public class ConnectionPool {
     for(int i = 0; i<initCon; i++){
       pool.add(createConnection());
     }
+    System.out.println("pool size: " + pool.size());
   }
   
   public static synchronized ConnectionPool getInstance() throws SQLException{
@@ -53,6 +54,9 @@ public class ConnectionPool {
       pool.removeElement(0);
     }else if (users < maxCon || maxCon == 0){
       conn = createConnection();
+    }
+    if(conn == null){
+      System.out.println("conn is null");
     }
     return conn;
   }

@@ -10,6 +10,7 @@ CREATE TABLE board (
 );
 
 select * from board;
+delete from board where idx >= 100;
 create sequence board_idx_seq increment by 1 start with 1;
-
+drop sequence board_idx_seq;
 drop table board;

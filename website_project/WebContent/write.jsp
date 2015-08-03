@@ -60,7 +60,7 @@ for(int i = 0; i<count; i++){
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
   <tr>
     <th width="13%" align="center" bgcolor="#EFEFEF">Name</th>
-    <td width="60%"><div><%=regBean.getMem_firstname() %>&nbsp;<%=regBean.getMem_lastname() %></div></td>
+    <td width="60%"><div><input style="border:none" type="text" name="name" value="<%=regBean.getMem_firstname() %>&nbsp;<%=regBean.getMem_lastname() %>" readonly></div></td>
 
   </tr>
   <tr>

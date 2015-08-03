@@ -6,7 +6,9 @@
 <jsp:useBean id = "boardQuery" class="board.BoardQuery"/>
 
 <%
+for(int i = 0; i < 50; ++i){
 boardQuery.boardInsert(boardBean);
+}
 %>
 
 <script>

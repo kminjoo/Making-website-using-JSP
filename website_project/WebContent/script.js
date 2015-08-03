@@ -170,3 +170,12 @@ function win_close()
 {
 	self.close();
 }
+
+function searchInputCheck(sform){
+	if(sform.search.value==""){
+	alert("Enter what you want to search");
+	sform.search.focus();
+	return false;
+}
+	sform.submit();
+}
