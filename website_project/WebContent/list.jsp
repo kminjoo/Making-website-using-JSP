@@ -37,6 +37,9 @@ if(pagelink_get == null){
 <img style="position:relative; LEFT:19%;" src="<%=request.getContextPath() %>/images/latestposts.gif">
 
 
+<a href="write.jsp"><img style="position:relative; TOP:20px; LEFT:62%;" src="<%=request.getContextPath() %>/images/newpost.gif"></a>
+ 
+
 <table width="60%" align="center">
 <tr>
   <td class="top" width="5%">#</td>

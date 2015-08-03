@@ -54,7 +54,7 @@ for(int i = 0; i<count; i++){
 <br>
 <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;&nbsp;<img src = "<%=request.getContextPath() %>/images/newpost.gif"></div>
+&nbsp;&nbsp;&nbsp;<img style="position:relative; LEFT:3%;" src = "<%=request.getContextPath() %>/images/writenewpost.gif"></div>
 <form method="post" action="write_ok.jsp" name="wform">
 <hr>
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
