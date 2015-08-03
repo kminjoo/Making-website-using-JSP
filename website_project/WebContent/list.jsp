@@ -31,6 +31,12 @@ if(pagelink_get == null){
 <link href="style3.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<br>
+<br>
+
+<img style="position:relative; LEFT:19%;" src="<%=request.getContextPath() %>/images/latestposts.gif">
+
+
 <table width="60%" align="center">
 <tr>
   <td class="top" width="5%">#</td>
