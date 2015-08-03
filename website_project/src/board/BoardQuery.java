@@ -154,4 +154,64 @@ public class BoardQuery {
 	   }
 	   return boardBean;
    }
+   
+   public boolean passwordCheck(int idx, String pwd) throws SQLException{
+	   boolean check = false;
+	   Connection conn = pool.getConnection();
+	   Statement stmt = conn.createStatement();
+	   ResultSet rs = null;
+	   String sql = "";
+	   String correctPw = "";
+	   try{
+		   sql = "select pwd from "+board+" where idx="+idx;
+		   System.out.println(sql);
+		   rs = stmt.executeQuery(sql);
+		   if(rs.next()){
+		   correctPw = rs.getString(1);
+		   pwd = pwd.trim();
+		   correctPw = correctPw.trim();
+		   System.out.println("correctpw: " + correctPw + "pwd: " + pwd);
+		   }else{
+			   System.out.println("wrong pwd");
+		   }
+		   if(pwd.equals(correctPw)){
+			   check = true;
+		   }
+	   }catch(Exception e){
+		   System.out.println(e);
+	   }finally{
+		   rs.close();
+		   stmt.close();
+		   pool.releaseConnection(conn);
+	   }
+	   return check;
+   }
+   
+   public boolean boardUpdate(BoardBean boardBean) throws SQLException{
+	   boolean result = false;
+	   Connection conn = pool.getConnection();
+	   Statement stmt = conn.createStatement();
+	   String sql = "";
+	   int idx = boardBean.getIdx();
+	   String name=boardBean.getName();
+	   String email= boardBean.getEmail();
+	   String title = boardBean.getTitle();
+	   String content = boardBean.getContent();
+	   String pwd = boardBean.getPwd();
+	   try{
+		   if(passwordCheck(idx,pwd)){
+			   sql= "Update "+board+" set name='"+name+"', email = '"+email+"', title='"+title+"', content='"+content+"' where idx="+idx;
+			   stmt.execute(sql);
+			   result = true;
+		   }else{
+			   result = false;
+		   }
+	   }catch(Exception e){
+		   System.out.println(e);
+	   }finally{
+		   stmt.close();
+		   pool.releaseConnection(conn);
+	   }
+	   return result;
+   }
 }//class ends
