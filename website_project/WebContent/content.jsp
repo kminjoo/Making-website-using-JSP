@@ -38,7 +38,7 @@ function delsend(idx){
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
   <tr>
     <th width="13%" align="center" bgcolor="#EFEFEF">Name</th>
-    <td width="60%"><%=boardBean.getName()%></td>
+    <td width="60%"><%=boardBean.getFirstname()%>&nbsp;<%=boardBean.getLastname() %></td>
 
   </tr>
   <tr>
@@ -66,7 +66,7 @@ function delsend(idx){
    <a href="list.jsp"><img src="<%=request.getContextPath()%>/images/list.gif"></a></div></td>
    
    <td align="right" style="border-bottom:transparent;border-right:transparent;">
-   <a href="#" onclick="editsend(<%=boardBean.getIdx()%>);"><img src="<%=request.getContextPath() %>/images/edit.gif"></a>
+   <a href="#" onclick="editsend(<%=idx%>);"><img src="<%=request.getContextPath() %>/images/edit.gif"></a>
    <a href="#" onclick="delsend(<%=boardBean.getIdx()%>);"><img src="<%=request.getContextPath() %>/images/delete.gif"></a></td>
    </tr>
 

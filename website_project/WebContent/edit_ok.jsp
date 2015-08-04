@@ -12,7 +12,8 @@ result = boardQuery.boardUpdate(boardBean);
 		%>
 		<script>
 		alert("The post is successfully edited!");
-		location.href="content.jsp?idx="+idx;
+		location.href="content.jsp?idx=<%=idx%>";
+		
 		</script>
 <% 
 	}else{

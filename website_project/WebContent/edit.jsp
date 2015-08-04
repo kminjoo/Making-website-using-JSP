@@ -37,18 +37,24 @@ function inputCheck(theform){
 </script>
 <%
 int idx = Integer.parseInt(request.getParameter("idx"));
-System.out.println("edit.jsp idx: " + idx);
+System.out.println("edit.jsp idx: "+idx);
 BoardQuery boardQuery = new BoardQuery();
 boardBean = boardQuery.boardView(idx);
 %>
 <body>
+
+
 <img style="position:relative; LEFT:10%;" src="<%=request.getContextPath() %>/images/editpost.gif">
-<form method="post" name="editform" action="edit_ok.jsp">
+<form method="post" name="editform" action="edit_ok.jsp?idx=<%=idx%>">
 <hr>
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
   <tr>
     <th width="13%" align="center" bgcolor="#EFEFEF">Name</th>
-    <td width="60%"><%=boardBean.getName() %></td>
+    <td width="60%"><%=boardBean.getFirstname() %>&nbsp;<%=boardBean.getLastname() %>
+    <input type="hidden" name="firstname" value="<%=boardBean.getFirstname()  %>">
+     <input type="hidden" name="lastname" value="<%=boardBean.getLastname()  %>">
+    </td>
+    
 
   </tr>
   <tr>

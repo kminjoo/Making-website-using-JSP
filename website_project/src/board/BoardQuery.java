@@ -6,7 +6,7 @@ import connectionPool.*;
 
 public class BoardQuery {
   String board = " board "; //table name
-  String idxNum = " board_idx_seq.nextval "; //auto increment name
+  String idxNum = " board_seq.nextval "; //auto increment name
   ConnectionPool pool = null;
    public BoardQuery(){
   //Connect when an instance gets created
@@ -21,15 +21,18 @@ public class BoardQuery {
      Connection conn = pool.getConnection();
      Statement stmt = conn.createStatement();
      String sql = "";
-     String name = boardBean.getName();
+     String firstname = boardBean.getFirstname();
+     String lastname = boardBean.getLastname();
      String email = boardBean.getEmail();
      String title = boardBean.getTitle();
+     title = title.replaceAll("'", "''");
      String content = boardBean.getContent();
+     content = content.replaceAll("'", "''");
      String pwd = boardBean.getPwd();
      try{
-       sql = " insert into "+board+" values("+idxNum+",'"+name+"','"+email+"','"+title+"','"+content+"',"
+       sql = " insert into "+board+" values("+idxNum+",'"+firstname+"','"+lastname+"','"+email+"','"+title+"','"+content+"',"
            + "'"+pwd+"',sysdate,0)";
-
+       System.out.println(sql);
        stmt.executeUpdate(sql);
        
      }catch(Exception e){
@@ -91,7 +94,8 @@ public class BoardQuery {
          BoardBean boardBean = new BoardBean();
          boardBean.setIdx(rs.getInt("idx"));
          boardBean.setHit(rs.getInt("hit"));
-         boardBean.setName(rs.getString("name"));
+         boardBean.setFirstname(rs.getString("firstname"));
+         boardBean.setLastname(rs.getString("lastname"));
          boardBean.setTitle(rs.getString("title"));
          boardBean.setWdate(rs.getString("wdate").substring(0,19));
          boardList.add(boardBean);
@@ -137,11 +141,11 @@ public class BoardQuery {
 		   if(rs.next()){
 			   boardBean.setIdx(rs.getInt("idx"));
 			   boardBean.setHit(rs.getInt("hit"));
-			   boardBean.setName(rs.getString("name"));
+			   boardBean.setFirstname(rs.getString("firstname"));
+			   boardBean.setLastname(rs.getString("lastname"));
 			   boardBean.setEmail(rs.getString("email"));
 			   boardBean.setTitle(rs.getString("title"));
 			   String content = rs.getString("content");
-			   content = content.replaceAll("\n", "<br>");
 			   boardBean.setContent(content);
 			   boardBean.setWdate(rs.getString("wdate"));
 		   }
@@ -193,15 +197,19 @@ public class BoardQuery {
 	   Statement stmt = conn.createStatement();
 	   String sql = "";
 	   int idx = boardBean.getIdx();
-	   String name=boardBean.getName();
+	   String firstname=boardBean.getFirstname();
+	   String lastname = boardBean.getLastname();
 	   String email= boardBean.getEmail();
 	   String title = boardBean.getTitle();
+	   title = title.replaceAll("'", "''");
+	
 	   String content = boardBean.getContent();
 	   String pwd = boardBean.getPwd();
 	   try{
 		   if(passwordCheck(idx,pwd)){
-			   sql= "Update "+board+" set name='"+name+"', email = '"+email+"', title='"+title+"', content='"+content+"' where idx="+idx;
+			   sql= "Update "+board+" set firstname='"+firstname+"', lastname='"+lastname+"', email = '"+email+"', title='"+title+"', content='"+content+"' where idx="+idx;
 			   stmt.execute(sql);
+			   
 			   result = true;
 		   }else{
 			   result = false;

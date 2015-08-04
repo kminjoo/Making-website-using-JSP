@@ -34,17 +34,17 @@ if(pagelink_get == null){
 <br>
 <br>
 
-<img style="position:relative; LEFT:19%;" src="<%=request.getContextPath() %>/images/latestposts.gif">
+<img style="position:relative; LEFT:14%;" src="<%=request.getContextPath() %>/images/latestposts.gif">
 
 
 <a href="write.jsp"><img style="position:relative; TOP:20px; LEFT:62%;" src="<%=request.getContextPath() %>/images/newpost.gif"></a>
  
 
-<table width="60%" align="center">
+<table width="70%" align="center">
 <tr>
   <td class="top" width="5%">#</td>
   <td class="top" width="50%">title</td>
-  <td class="top">author</td>
+  <td class="top" width="10%">author</td>
   <td class="top" width="10%">date</td>
   <td class="top" width="10%">views</td>
 </tr>
@@ -60,7 +60,7 @@ for(int i = 0; i < listVector.size(); ++i){
 <tr>
   <td class="contents"><%=boardBean.getIdx() %></td>
   <td class="title"><a style="text-decoration:none;" href="content.jsp?idx=<%=boardBean.getIdx()%>"><%=boardBean.getTitle() %></a></td>
-  <td class="contents"><%=boardBean.getName() %></td>
+  <td class="contents"><%=boardBean.getFirstname() %>&nbsp;<%=boardBean.getLastname() %></td>
   <td class="contents"><%=boardBean.getWdate() %></td>
   <td class="contents"><%=boardBean.getHit() %></td>
 </tr>
@@ -73,7 +73,7 @@ PagingCount pc = new PagingCount(rcnt);
 <%=pc.showPaging(pagelink,"list.jsp") %>
 <br>
 <form action="search.jsp" method=post name="sform">
-<table width="60%" align="center">
+<table width="70%" align="center">
 <tr>
   <td class="search" align="center">
     <select name = "find">

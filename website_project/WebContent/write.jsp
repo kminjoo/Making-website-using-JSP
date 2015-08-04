@@ -47,7 +47,9 @@ Vector info = memMgr.findInfo(memberId);
 int count = info.size();
 for(int i = 0; i<count; i++){
   RegisterBean regBean = (RegisterBean)info.elementAt(i);
-
+  String firstname = regBean.getMem_firstname();
+  String lastname = regBean.getMem_lastname();
+  System.out.println("firstname length: " + firstname.length() + " last name length: " + lastname.length() );
 %>
 <br>
 <br>
@@ -60,7 +62,13 @@ for(int i = 0; i<count; i++){
 <table border="1" cellpadding="18" cellspacing="1" width="80%" align="center">
   <tr>
     <th width="13%" align="center" bgcolor="#EFEFEF">Name</th>
-    <td width="60%"><div><input style="border:none" type="text" name="name" value="<%=regBean.getMem_firstname() %>&nbsp;<%=regBean.getMem_lastname() %>" readonly></div></td>
+    <td width="60%"><%=firstname %>&nbsp;<%=lastname %>
+    <input type="hidden" name="firstname" value="<%=firstname %>" >
+    <input type="hidden" name="lastname" value="<%=lastname %>"/>
+    <%
+    System.out.println("first name: "+ firstname + " last name: "+ lastname);
+    %></td>
+    
 
   </tr>
   <tr>

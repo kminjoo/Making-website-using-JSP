@@ -3,12 +3,13 @@
 
 <jsp:useBean id="boardBean" class="board.BoardBean"/>
 <jsp:setProperty name="boardBean" property="*"/>
+<%
+System.out.println(boardBean.getFirstname());
+%>
 <jsp:useBean id = "boardQuery" class="board.BoardQuery"/>
 
 <%
-for(int i = 0; i < 10; ++i){
 boardQuery.boardInsert(boardBean);
-}
 %>
 
 <script>
