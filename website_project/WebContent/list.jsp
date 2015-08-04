@@ -30,10 +30,9 @@ if(pagelink_get == null){
 <title>Insert title here</title>
 <link href="style3.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body><jsp:include page="header.html"/>
 <br>
 <br>
-
 <img style="position:relative; LEFT:14%;" src="<%=request.getContextPath() %>/images/latestposts.gif">
 
 

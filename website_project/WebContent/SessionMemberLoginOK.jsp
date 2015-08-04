@@ -11,7 +11,7 @@
 %>
 <script>
 	alert("You are successfully logged in!");
-	location.href="SessionLoginConfirm.jsp";
+	location.href="list.jsp";
 </script>
 <%
 	  }else{

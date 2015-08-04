@@ -42,7 +42,7 @@ BoardQuery boardQuery = new BoardQuery();
 boardBean = boardQuery.boardView(idx);
 %>
 <body>
-
+<jsp:include page="header.html"/><br>
 
 <img style="position:relative; LEFT:10%;" src="<%=request.getContextPath() %>/images/editpost.gif">
 <form method="post" name="editform" action="edit_ok.jsp?idx=<%=idx%>">

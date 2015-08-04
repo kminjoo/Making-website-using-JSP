@@ -6,7 +6,7 @@
 %>
 <script>
 	alert("You are already logged in.");
-	location.href = "SessionLoginConfirm.jsp";
+	location.href = "list.jsp";
 </script>
 <%} %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -16,7 +16,7 @@
 <title>Welcome to Minjoo's Website!</title>
 <script language="JavaScript" src="script.js"> </script>
 </head>
-<body>
+<body><jsp:include page="header.html"/><br><br>
 <div align = "center">
 	<img src="<%= request.getContextPath() %>/images/welcome.JPG"/>
 </div>

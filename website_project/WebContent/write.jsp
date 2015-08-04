@@ -7,7 +7,7 @@ if(mem_id == null){
 %>
   <script>
   alert("You are not logged in.");
-  history.back();
+  location.href="SessionMemberLogin.jsp";
   </script>
 <% }
 %>
@@ -50,6 +50,7 @@ function inputCheck(theform){
 </script>
 </head>
 <body>
+<jsp:include page="header.html"/>
 <%
 String memberId = (String)session.getAttribute("memID");
 Vector info = memMgr.findInfo(memberId);

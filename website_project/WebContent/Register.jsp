@@ -9,6 +9,8 @@
 <script language="JavaScript" src="script.js"></script>
 </head>
 <body onLoad="regForm.mem_id.focus()">
+<jsp:include page="header.html"/>
+<br>
 <div align="center"><img src="<%=request.getContextPath() %>/images/visit.jpg"/></div>
 <div>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

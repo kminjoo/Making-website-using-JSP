@@ -204,10 +204,13 @@ public class BoardQuery {
 	   title = title.replaceAll("'", "''");
 	
 	   String content = boardBean.getContent();
+	   content = content.replaceAll("'", "''");
+	   System.out.println(content);
 	   String pwd = boardBean.getPwd();
 	   try{
 		   if(passwordCheck(idx,pwd)){
 			   sql= "Update "+board+" set firstname='"+firstname+"', lastname='"+lastname+"', email = '"+email+"', title='"+title+"', content='"+content+"' where idx="+idx;
+			   System.out.println(sql);
 			   stmt.execute(sql);
 			   
 			   result = true;

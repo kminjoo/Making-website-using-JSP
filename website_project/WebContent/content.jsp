@@ -20,6 +20,7 @@ function delsend(idx){
 
 </script>
 <body>
+<jsp:include page="header.html"/>
 <%
 	int idx = Integer.parseInt(request.getParameter("idx"));
 	BoardQuery boardQuery = new BoardQuery();
