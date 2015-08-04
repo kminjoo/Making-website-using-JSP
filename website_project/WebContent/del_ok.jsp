@@ -6,7 +6,9 @@ int idx = Integer.parseInt(request.getParameter("idx"));
 String pwd = request.getParameter("pwd");
 
 boolean result = false;
+System.out.println("del_ok.jsp");
 result = boardQuery.boardDelete(idx,pwd);
+
 if(result){
 %>
 

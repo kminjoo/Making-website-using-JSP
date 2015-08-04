@@ -234,6 +234,7 @@ public class BoardQuery {
 	   try{
 		   if(passwordCheck(idx,pwd)){
 			   sql="delete from "+board+" where idx="+idx;
+			   System.out.println(sql);
 			   stmt.executeUpdate(sql);
 			   result = true;
 		   }else{
