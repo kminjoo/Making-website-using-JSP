@@ -1,7 +1,16 @@
 <%@ page contentType="text/html; charset=UTF-8" import = "java.util.*, signUp.*"%>
 <% request.setCharacterEncoding("utf-8"); %>
 <jsp:useBean id="memMgr" class="signUp.MemberMgrPool" scope="page"/>
-
+<%
+String mem_id = (String)session.getAttribute("memID");
+if(mem_id == null){
+%>
+  <script>
+  alert("You are not logged in.");
+  history.back();
+  </script>
+<% }
+%>
 <!DOCTYPE html>
 <html>
 <head>

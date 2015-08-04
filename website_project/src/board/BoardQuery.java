@@ -222,4 +222,113 @@ public class BoardQuery {
 	   }
 	   return result;
    }
+   
+   public boolean boardDelete(int idx, String pwd) throws SQLException{
+	   boolean result = false;
+	   Connection conn = pool.getConnection();
+	   Statement stmt = conn.createStatement();
+	   String sql = "";
+	   try{
+		   if(passwordCheck(idx,pwd)){
+			   sql="delete from "+board+" where idx="+idx;
+			   stmt.executeUpdate(sql);
+			   result = true;
+		   }else{
+			   result = false;
+		   }
+	   }catch(Exception e){
+		   System.out.println(e);
+		   
+	   }finally{
+		   stmt.close();
+		   pool.releaseConnection(conn);
+	   }
+	   return result;
+   }
+   
+   public int BoardCount (String find, String search) throws SQLException{
+     int count = 0;
+     Connection conn = null;
+     Statement stmt = null;
+     ResultSet rs = null;
+     String sql = null;
+     if(find== "author"){
+       find = "firstname";
+     }
+     try{
+       conn = pool.getConnection();
+       stmt = conn.createStatement();
+       sql = " select count(*) from "+board+" where "+find+" like "+"'%"+search+"%'";
+       rs = stmt.executeQuery(sql);
+       if(rs!= null){
+         if(rs.next())
+           count = rs.getInt(1);
+       }
+     }catch(Exception e){
+       System.out.println(e);
+     }finally{
+       if(rs!=null){
+       rs.close();
+       }
+       stmt.close();
+       pool.releaseConnection(conn);
+     }
+     return count;
+   }
+   
+   
+   public Vector getSearchList(int offset, int limit, String find, String search) throws SQLException{
+     Connection conn = null;
+     Statement stmt = null;
+     ResultSet rs = null;
+     String sql = null;
+     if(find == "author"){
+       find = "firstname";
+     }
+     Vector searchList = new Vector();
+     try{
+       conn = pool.getConnection();
+       stmt = conn.createStatement();
+       sql = " select a.* " + 
+       "from ( " + 
+       " select ROWNUM as RNUM, b.* " + 
+       " from ( " + 
+       " select * " + 
+       " from "+board+" " + 
+       " where "+find+" like " + "'%"+search+"%' order by idx desc" 
+       + " ) b " +
+       " ) a " + 
+           " where a.RNUM > " + offset + " " +
+       " and a.RNUM <= " + (offset + limit) + " ";
+       rs = stmt.executeQuery(sql);
+       
+       while(rs.next()){
+         BoardBean boardBean = new BoardBean();
+         boardBean.setIdx(rs.getInt("idx"));
+         boardBean.setHit(rs.getInt("hit"));
+         boardBean.setFirstname(rs.getString("firstname"));
+         boardBean.setLastname(rs.getString("lastname"));
+         boardBean.setEmail(rs.getString("email"));
+         String title = rs.getString("title");
+         title.replaceAll("'", "''");
+         boardBean.setTitle(rs.getString("title"));
+        
+         String content = rs.getString("content");
+         content = content.replaceAll("\n", "<br>");
+         content = content.replaceAll("'", "''");
+         boardBean.setContent(content);
+         boardBean.setWdate(rs.getString("wdate").substring(0,19));
+         searchList.add(boardBean);
+       }
+     }catch(Exception e){
+       System.out.println(e);
+     }finally{
+       if(rs!=null){
+       rs.close();
+       }
+       stmt.close();
+       pool.releaseConnection(conn);
+     }
+     return searchList;
+   }
 }//class ends
